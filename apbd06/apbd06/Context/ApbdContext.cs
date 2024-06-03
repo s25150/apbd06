@@ -28,7 +28,9 @@ public class ApbdContext : DbContext
             .WithOne(pr => pr.Doctor)
             .HasForeignKey(pr => pr.IdDoctor);
     }*/
-    
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("data source=(localdb)\\Local;initial catalog=apbd06;trusted_connection=true");
     
     public DbSet<Medicament> Medicaments { get; set; }
     
@@ -37,6 +39,8 @@ public class ApbdContext : DbContext
     public DbSet<Doctor> Doctors { get; set; }
     
     public DbSet<Prescription> Prescriptions { get; set; }
+    
+    public DbSet<PrescriptionMedicament> Prescription_Medicament { get; set; }
     
     
 }
