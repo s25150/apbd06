@@ -1,3 +1,6 @@
+using apbd06.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddXmlSerializerFormatters();
+builder.Services.AddDbContext<ApbdContext>(opt =>
+{
+    opt.UseSqlServer("data source=(localdb)\\Local;initial catalog=apbd06;trusted_connection=true");
+});
 
 var app = builder.Build();
 
