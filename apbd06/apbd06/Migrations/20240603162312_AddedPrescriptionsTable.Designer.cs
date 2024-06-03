@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apbd06.Context;
 
@@ -11,9 +12,11 @@ using apbd06.Context;
 namespace apbd06.Migrations
 {
     [DbContext(typeof(ApbdContext))]
-    partial class ApbdContextModelSnapshot : ModelSnapshot
+    [Migration("20240603162312_AddedPrescriptionsTable")]
+    partial class AddedPrescriptionsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

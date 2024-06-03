@@ -16,6 +16,20 @@ public class ApbdContext : DbContext
         
     }
     
+    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Patient>()
+            .HasMany(p => p.Prescriptions)
+            .WithOne(pr => pr.Patient)
+            .HasForeignKey(pr => pr.IdPatient);
+        
+        modelBuilder.Entity<Doctor>()
+            .HasMany(p => p.Prescriptions)
+            .WithOne(pr => pr.Doctor)
+            .HasForeignKey(pr => pr.IdDoctor);
+    }*/
+    
+    
     public DbSet<Medicament> Medicaments { get; set; }
     
     public DbSet<Patient> Patients { get; set; }
@@ -23,4 +37,6 @@ public class ApbdContext : DbContext
     public DbSet<Doctor> Doctors { get; set; }
     
     public DbSet<Prescription> Prescriptions { get; set; }
+    
+    
 }

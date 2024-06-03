@@ -12,13 +12,22 @@ public class Prescription
     
     public DateTime DueDate { get; set; }
     
-    public int IdPatientPrescription { get; set; }
+    public int IdPatient { get; set; }
     
-    public int IdDoctorPrescription { get; set; }
+    public int IdDoctor { get; set; }
     
-    [ForeignKey(nameof(IdPatientPrescription))]
+    [ForeignKey(nameof(IdPatient))]
+    public Patient Patient { get; set; }
+    
+    [ForeignKey(nameof(IdDoctor))]
+    public Doctor Doctor { get; set; }
+    /*[ForeignKey(nameof(IdPatient))]
     public ICollection<Patient> Patients { get; set; }
     
-    [ForeignKey(nameof(IdDoctorPrescription))]
-    public ICollection<Doctor> Doctors { get; set; }
+    [ForeignKey(nameof(IdDoctor))]
+    public ICollection<Doctor> Doctors { get; set; }*/
+
+    /*public Patient Patients { get; set; }
+    public Doctor Doctors { get; set; }*/
+
 }
